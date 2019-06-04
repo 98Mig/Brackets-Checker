@@ -6,11 +6,18 @@ using namespace std;
 bool checkBrackets(string sentence){
     int length = sentence.length();
     bool validSentence = false;
-
-    if(length > 1){
+    int counterBrackets = 0;
+    int j = 0;
+    for(j = 0; j < length; j++){
+        if(sentence[j] == '(' || sentence[j] == ')')
+            counterBrackets++;
+    }
+    
+    if(counterBrackets % 2 == 0){
         int counter = 0;
         int i;
         bool openBracket = false;
+        int counterBrackets = 0;
 
         for(i = 0; i < length; i++){
             if(sentence[i] == '(' && !openBracket){
@@ -28,17 +35,9 @@ bool checkBrackets(string sentence){
 
     }
 
-    else{
-        if(sentence[0] == '(' || sentence[0] == ')')
-            validSentence = false;
-        else
-            validSentence = true;
-    }
-
     return validSentence;
 
 }
-
 
 int main(){
 
